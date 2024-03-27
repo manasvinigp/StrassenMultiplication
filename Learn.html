@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn about Strassen's Algorithm</title>
+    <style>
+        body{
+            background-color: rgb(235, 235, 235);
+        }
+        #container{
+            width: 90vw;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 25px;
+            background-color: white;
+            padding: 60px;
+            box-sizing: border-box;
+        }
+        #footer{
+            text-align: left;
+        }
+        #left-align {
+            text-align: left;
+            margin-left: 20px;
+        }
+        #left-align img {
+            max-width: 80%; /* Set maximum width for images */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Center images horizontally */
+            margin: 0 auto 10px; /* Add some bottom margin for spacing */
+        }
+        .head{
+            align-items: center;text-align:center        }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        <div id="left-align">
+            <div class="head">
+                <h2>What is Strassen's Matrix Multiplication?</h2>
+            </div>
+            
+            <h3>Divide-and-Conquer Strategy:</h3>
+<ul>
+  <li><strong>Divide:</strong> Break down the input matrices into smaller submatrices.</li>
+  <li><strong>Conquer:</strong> Multiply these submatrices recursively until reaching a base case.</li>
+  <li><strong>Combine:</strong> Combine the results of the smaller multiplications to obtain the final result.</li>
+</ul>
+
+<h3>Strassen's Algorithm Steps:</h3>
+<ol>
+  <li><strong>Divide Step:</strong><br><br>
+    Given two matrices A and B, divide each matrix into four equal-sized submatrices:<br>
+    A = [[A11, A12], [A21, A22]]<br>
+    B = [[B11, B12], [B21, B22]]</li><br>
+  <li><strong>Conquer Step:</strong><br><br>
+    Recursively compute seven matrix products:<br>
+    <ul>
+      <li>F1 = A11(B12-B22)</li>
+      <li>F2 = (A11+A12)B22</li>
+      <li>F3 = (A21+A22)B11</li>
+      <li>F4 = A22(B21-B11)</li>
+      <li>F5 = (A11+A22)(B11+B22)</li>
+      <li>F6 = (A12-A22)(B21+B22)</li>
+      <li>F7 = (A11-A21)(B11+B12)</li>
+    </ul>
+  </li><br>
+  <li><strong>Combine Step:</strong><br><br>
+    Compute the resulting submatrices of the product matrix C using the following equations:<br>
+    <ul>
+      <li>C11 = F5 + F4 - F2 + F6</li>
+      <li>C12 = F1 + F2</li>
+      <li>C21 = F3 + F4</li>
+      <li>C22 = F5 + F1 - F3 - F7</li>
+    </ul>
+  </li>
+</ol>
+
+            <p>
+                Thus,
+            </p>
+            <img src="Img/Img1.png" alt="" height="60px" width="400px"><br>
+            <img src="Img/Img2.png" alt="" height="60px" width="400px"><br>
+            <img src="Img/Img3.png" alt="" height="60px" width="400px"><br>
+            <img src="Img/Img4.png" alt="" height="60px" width="400px"><br>
+            <img src="Img/Img5.png" alt="" height="80px" width="600px"><br>
+            <p>This meantime, we can explain the time complexity through the following expression, i.e., O(n^2.81). It is evident that the Strassen algorithm was more efficient than the general algorithm for matrix multiplication. In fact, if n is not a power of 2, the matrix can be embedded into another matrix (let the matrix be matrix E) whose number of dimensions is a power of 2. In matrix multiplication, if the dimension of matrix E take minimum value within the design requirement above is achieved, the dimension will increase twofold at most. Thus, the time complexity of Strassen algorithm can still be described as O(n^2.81).</p>
+        </div>
+        <div id="footer">
+            <h3>Resources for further information</h3>
+            <ul>
+                <li><a href="https://www.geeksforgeeks.org/strassens-matrix-multiplication/"><h4>geeks for geeks</h4></a></li>
+                <li><a href="https://www.tutorialspoint.com/data_structures_algorithms/strassens_matrix_multiplication_algorithm.htm"><h4>Tutorials Point</h4></a></li>
+                <li><a href="https://www.scaler.com/topics/strassens-matrix-multiplication/"><h4>Scaler</h4></a></li>
+                <li><a href="https://www.codingninjas.com/studio/library/strassens-matrix-multiplication"><h4>Coding Ninjas</h4></a></li>
+                <li><a href="https://medium.com/swlh/strassens-matrix-multiplication-algorithm-936f42c2b344"><h4>Medium.com</h4></a></li>
+                <li><a href="https://blog.computationalcomplexity.org/2022/10/will-strassens-matrix-mult-alg-ever-be.html#:~:text=4%20Strassen%20only%20works%20on,the%20hidden%20cost%20of%20recursion"><h4>The Strassen Algorithm and its Computational Complexity</h4></a></li>
+                <li><a href="https://studenttheses.uu.nl/bitstream/handle/20.500.12932/35943/ThesisWSKTBA5733197.pdf?sequence=1&isAllowed=y"><h4>Will Strassen's Algorithm ever be practical?</h4></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

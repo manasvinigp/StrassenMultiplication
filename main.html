@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Virtual Simulator</title>
+</head>
+
+<body>
+    <div id="logo"> <a href="https://rvce.edu.in/"><img src="img/rvlogo.png" height="80px" width="190px"></a></div>
+    <h1>Matrix Multiplication using Strassen's Algorithm</h1>
+    <div class="input">
+        <form class="input-form">
+            <section>
+                <h2>Matrix A</h2>
+                <p>
+                    <label for="rowA">Enter the number of rows in Matrix A:</label>
+                    <input type="text" name="rowA" id="rowA" maxlength="4" size="4">
+                </p>
+                <p>
+                    <label for="colA">Enter the number of columns in Matrix A:</label>
+                    <input type="text" name="colA" id="colA" maxlength="4" size="4">
+                </p>
+            </section>
+        </form>
+        <div class="input-breaker">
+            <h1>|</h1>
+            <h1>|</h1>
+            <h1>|</h1>
+            <h1>|</h1>
+        </div>
+        <form class="input-form">
+            <section>
+                <h2>Matrix B</h2>
+                <p>
+                    <label>Enter the number of rows in Matrix B:</label>
+                    <input type="text" name="rowB" id="rowB" maxlength="4" size="4">
+                </p>
+                <p>
+                    <label>Enter the number of columns in Matrix B:</label>
+                    <input type="text" name="colB" id="colB" maxlength="4" size="4">
+                </p>
+
+            </section>
+        </form>
+    </div>
+    <div class="container">
+        <div class="matrices">
+            <table class="matAOut">
+                <tr>
+                    <td class="matA">
+                        <div class="matrix">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <span class="tempEqualsSign"></span>
+            <table class="matBOut">
+                <tr>
+                    <td class="matB">
+                        <div class="matrix">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="controlPanel">
+            <div id="multiply-1">
+                <svg width="20px" height="20px" viewBox="0 0 41.999 41.999" space="preserve">
+                    <g>
+                        <path
+                            d="M36.068,20.176l-29-20C6.761-0.035,6.363-0.057,6.035,0.114C5.706,0.287,5.5,0.627,5.5,0.999v40 c0,0.372,0.206,0.713,0.535,0.886c0.146,0.076,0.306,0.114,0.465,0.114c0.199,0,0.397-0.06,0.568-0.177l29-20  c0.271-0.187,0.432-0.494,0.432-0.823S36.338,20.363,36.068,20.176z"
+                            fill="#FFFFFF"></path>
+                    </g>
+                </svg>Simulate
+            </div>
+        </div>
+        <div class="controlPanel">
+            <div id="multiply-2">
+                <svg width="20px" height="20px" viewBox="0 0 41.999 41.999" space="preserve">
+                    <g>
+                        <path
+                            d="M36.068,20.176l-29-20C6.761-0.035,6.363-0.057,6.035,0.114C5.706,0.287,5.5,0.627,5.5,0.999v40 c0,0.372,0.206,0.713,0.535,0.886c0.146,0.076,0.306,0.114,0.465,0.114c0.199,0,0.397-0.06,0.568-0.177l29-20  c0.271-0.187,0.432-0.494,0.432-0.823S36.338,20.363,36.068,20.176z"
+                            fill="#FFFFFF"></path>
+                    </g>
+                </svg>Multiply
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="output output-1 hid">
+            <hr>
+            <h2>Step 1. Padding the matrix with zeroes to obtain the matrix sizes to a nearest power of 2.</h2>
+            <div class="matrices">
+                <table class="out1out">
+                    <tr>
+                        <td class="out1">
+                            <div class="matrix">
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <span class="tempEqualsSign">×</span>
+                <table class="out2out">
+                    <tr>
+                        <td class="out2">
+                            <div class="matrix">
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="controlPanel">
+            <div id="multiply-3">
+                <svg width="20px" height="20px" viewBox="0 0 41.999 41.999" space="preserve">
+                    <g>
+                        <path
+                            d="M36.068,20.176l-29-20C6.761-0.035,6.363-0.057,6.035,0.114C5.706,0.287,5.5,0.627,5.5,0.999v40 c0,0.372,0.206,0.713,0.535,0.886c0.146,0.076,0.306,0.114,0.465,0.114c0.199,0,0.397-0.06,0.568-0.177l29-20  c0.271-0.187,0.432-0.494,0.432-0.823S36.338,20.363,36.068,20.176z"
+                            fill="#FFFFFF"></path>
+                    </g>
+                </svg>Next
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="output output-2 hid">
+            <hr>
+            <h2>Step 2. Obtain the Sub-matrices of size N/2.</h2>
+            <div class="matrices">
+                <table class="legend-1" style="margin-right: 200px;">
+                    <tr>
+                        <td
+                            style="display: block;padding: 10px;margin-top: 10px; margin-bottom: 10px; font-size: 24px;background-color:#fee08b;">
+                            A<sub>11</sub></td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="display: block;padding: 10px;margin-top: 10px; margin-bottom: 10px; font-size: 24px;background-color:#f46d43;">
+                            A<sub>12</sub></td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="display: block;padding: 10px;margin-top: 10px; margin-bottom: 10px; font-size: 24px;background-color:#fdae61;">
+                            A<sub>21</sub></td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="display: block;padding: 10px;margin-top: 10px; margin-bottom: 10px; font-size: 24px;background-color:#d53e4f;">
+                            A<sub>22</sub></td>
+                    </tr>
+                </table>
+                <table class="out1">
+                    <tr>
+                        <td class="out1">
+                            <div class="matrix">
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <span class="tempEqualsSign">×</span>
+                <table class="out2">
+                    <tr>
+                        <td class="out2">
+                            <div class="matrix">
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <table class="legend-2" style="margin-left: 200px;">
+                    <tr>
+                        <td
+                            style="display: block;padding: 10px;margin-top: 10px; margin-bottom: 15px; font-size: 24px;background-color:#e6f598;">
+                            B<sub>11</sub></td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="display: block;padding: 10px;margin-top: 10px; margin-bottom: 15px; font-size: 24px;background-color:#66c2a5;">
+                            B<sub>12</sub></td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="display: block;padding: 10px;margin-top: 10px; margin-bottom: 15px; font-size: 24px;background-color:#abdda4;">
+                            B<sub>21</sub></td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="display: block;padding: 10px;margin-top: 10px; margin-bottom: 15px; font-size: 24px;background-color:#3288bd;">
+                            B<sub>22</sub></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="controlPanel">
+            <div id="multiply-4">
+                <svg width="20px" height="20px" viewBox="0 0 41.999 41.999" space="preserve">
+                    <g>
+                        <path
+                            d="M36.068,20.176l-29-20C6.761-0.035,6.363-0.057,6.035,0.114C5.706,0.287,5.5,0.627,5.5,0.999v40 c0,0.372,0.206,0.713,0.535,0.886c0.146,0.076,0.306,0.114,0.465,0.114c0.199,0,0.397-0.06,0.568-0.177l29-20  c0.271-0.187,0.432-0.494,0.432-0.823S36.338,20.363,36.068,20.176z"
+                            fill="#FFFFFF"></path>
+                    </g>
+                </svg>Next
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="output output-3 hid">
+            <hr>
+            <h2>Step 3. Calculate the seven formulas using the sub matrices.</h2>
+            <img src="img/form-1.svg" alt="Strassen Formula" width="364px" />
+            <div class="matrices output-matrices">
+                <table class="out1 hid">
+                    <tr>
+                        <td class="out1 lineMat1">
+                            <h2 style="font-size: 24px;">M<sub>1</sub></h2>
+                            <span class="tempEqualsSign">=></span>
+                            <div class="matrix valued">
+                                <div class="leftBracket"></div>
+                            </div>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+
+                            <span class="tempEqualsSign">+</span>
+
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <div class="matrix valued">
+                                <div class="rightBracket"></div>
+                            </div>
+
+                            <span class="tempEqualsSign">x</span>
+                            <div class="matrix valued">
+                                <div class="leftBracket"></div>
+                            </div>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+
+                            <span class="tempEqualsSign">+</span>
+
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <div class="matrix valued">
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">=</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="matrices output-matrices">
+                <table class="out2 hid">
+                    <tr>
+                        <td class="out2 lineMat2">
+                            <h2 style="font-size: 24px;">M<sub>2</sub></h2>
+                            <span class="tempEqualsSign">=></span>
+                            <div class="matrix valued">
+                                <div class="leftBracket"></div>
+                            </div>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">+</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <div class="matrix valued">
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">x</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">=</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="matrices output-matrices">
+                <table class="out3 hid">
+                    <tr>
+                        <td class="out3 lineMat3">
+                            <h2 style="font-size: 24px;">M<sub>3</sub></h2>
+                            <span class="tempEqualsSign">=></span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">x</span>
+                            <div class="matrix valued">
+                                <div class="leftBracket"></div>
+                            </div>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">-</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <div class="matrix valued">
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">=</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="matrices output-matrices">
+                <table class="out4 hid">
+                    <tr>
+                        <td class="out4 lineMat4">
+                            <h2 style="font-size: 24px;">M<sub>4</sub></h2>
+                            <span class="tempEqualsSign">=></span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">x</span>
+                            <div class="matrix valued">
+                                <div class="leftBracket"></div>
+                            </div>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">-</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <div class="matrix valued">
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">=</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="matrices output-matrices">
+                <table class="out5  hid">
+                    <tr>
+                        <td class="out5 lineMat5">
+                            <h2 style="font-size: 24px;">M<sub>5</sub></h2>
+                            <span class="tempEqualsSign">=></span>
+                            <div class="matrix valued">
+                                <div class="leftBracket"></div>
+                            </div>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">+</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <div class="matrix valued">
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">x</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">=</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="matrices output-matrices">
+                <table class="out6  hid">
+                    <tr>
+                        <td class="out6 lineMat6">
+                            <h2 style="font-size: 24px;">M<sub>6</sub></h2>
+                            <span class="tempEqualsSign">=></span>
+                            <div class="matrix valued">
+                                <div class="leftBracket"></div>
+                            </div>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+
+                            <span class="tempEqualsSign">-</span>
+
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <div class="matrix valued">
+                                <div class="rightBracket"></div>
+                            </div>
+
+                            <span class="tempEqualsSign">x</span>
+                            <div class="matrix valued">
+                                <div class="leftBracket"></div>
+                            </div>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+
+                            <span class="tempEqualsSign">+</span>
+
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <div class="matrix valued">
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">=</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="matrices output-matrices">
+                <table class="out7  hid ">
+                    <tr>
+                        <td class="out7 lineMat7">
+                            <h2 style="font-size: 24px;">M<sub>7</sub></h2>
+                            <span class="tempEqualsSign">=></span>
+                            <div class="matrix valued">
+                                <div class="leftBracket"></div>
+                            </div>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+
+                            <span class="tempEqualsSign">-</span>
+
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <div class="matrix valued">
+                                <div class="rightBracket"></div>
+                            </div>
+
+                            <span class="tempEqualsSign">x</span>
+                            <div class="matrix valued">
+                                <div class="leftBracket"></div>
+                            </div>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+
+                            <span class="tempEqualsSign">+</span>
+
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <div class="matrix valued">
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">=</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="controlPanel">
+            <div id="multiply-5">
+                <svg width="20px" height="20px" viewBox="0 0 41.999 41.999" space="preserve">
+                    <g>
+                        <path
+                            d="M36.068,20.176l-29-20C6.761-0.035,6.363-0.057,6.035,0.114C5.706,0.287,5.5,0.627,5.5,0.999v40 c0,0.372,0.206,0.713,0.535,0.886c0.146,0.076,0.306,0.114,0.465,0.114c0.199,0,0.397-0.06,0.568-0.177l29-20  c0.271-0.187,0.432-0.494,0.432-0.823S36.338,20.363,36.068,20.176z"
+                            fill="#FFFFFF"></path>
+                    </g>
+                </svg>Next
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="output output-4 hid">
+            <hr>
+            <h2>Step 4. Calculate the Sub matrices of C using the formulae.</h2>
+            <img src="img/equation.svg" alt="Strassen Formula" width="800px" style="margin-bottom: 20px;"/>
+            <div class="matrices output-matrices">
+                <table class="out11  hid ">
+                    <tr>
+                        <td class="out11 lineMat11">
+                            <h2 style="font-size: 24px;">C<sub>11</sub></h2>
+                            <span class="tempEqualsSign">=></span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">+</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">-</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">+</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">=</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="matrices output-matrices">
+                <table class="out12 hid">
+                    <tr>
+                        <td class="out12 lineMat12">
+                            <h2 style="font-size: 24px;">C<sub>12</sub></h2>
+                            <span class="tempEqualsSign">=></span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">+</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">=</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="matrices output-matrices">
+                <table class="out21 hid">
+                    <tr>
+                        <td class="out21 lineMat21">
+                            <h2 style="font-size: 24px;">C<sub>21</sub></h2>
+                            <span class="tempEqualsSign">=></span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">+</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">=</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="matrices output-matrices">
+                <table class="out22  hid ">
+                    <tr>
+                        <td class="out22 lineMat22">
+                            <h2 style="font-size: 24px;">C<sub>22</sub></h2>
+                            <span class="tempEqualsSign">=></span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">-</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">+</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">+</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                            <span class="tempEqualsSign">=</span>
+                            <div class="matrix">
+                                <div class="leftBracket"></div>
+                                <div class="rightBracket"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="controlPanel">
+                <div id="multiply-6">
+                    <svg width="20px" height="20px" viewBox="0 0 41.999 41.999" space="preserve">
+                        <g>
+                            <path
+                                d="M36.068,20.176l-29-20C6.761-0.035,6.363-0.057,6.035,0.114C5.706,0.287,5.5,0.627,5.5,0.999v40 c0,0.372,0.206,0.713,0.535,0.886c0.146,0.076,0.306,0.114,0.465,0.114c0.199,0,0.397-0.06,0.568-0.177l29-20  c0.271-0.187,0.432-0.494,0.432-0.823S36.338,20.363,36.068,20.176z"
+                                fill="#FFFFFF"></path>
+                        </g>
+                    </svg>Next
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="output output-5 hid">
+            <hr>
+            <h2>Step 5. Obtaining the Final resultant matrix</h2>
+            <div class="matrices output-matrices">
+                <table class="out-final-1 hid">
+                    <tr>
+                        <td class="out-final-1 mat-final-1">
+                            <h2 style="font-size: 24px;">C<sup>'</sup></h2>
+                            <span class="tempEqualsSign">=></span>
+                            <div class="matrix">
+                                <div class="leftBracket">
+                                </div>
+                                <div class="rightBracket"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="matrices output-matrices">
+                <table class="out-final-2 hid">
+                    <tr>
+                        <td class="out-final-2 mat-final-2">
+                            <h2 style="font-size: 24px;">C</h2>
+                            <span class="tempEqualsSign">=></span>
+                            <div class="matrix">
+                                <div class="leftBracket">
+                                </div>
+                                <div class="rightBracket"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="controlPanel">
+            <div id="multiply-7">
+                <svg width="20px" height="20px" viewBox="0 0 41.999 41.999" space="preserve">
+                    <g>
+                        <path
+                            d="M36.068,20.176l-29-20C6.761-0.035,6.363-0.057,6.035,0.114C5.706,0.287,5.5,0.627,5.5,0.999v40 c0,0.372,0.206,0.713,0.535,0.886c0.146,0.076,0.306,0.114,0.465,0.114c0.199,0,0.397-0.06,0.568-0.177l29-20  c0.271-0.187,0.432-0.494,0.432-0.823S36.338,20.363,36.068,20.176z"
+                            fill="#FFFFFF"></path>
+                    </g>
+                </svg>Final
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <a href="index.html"><button id="feed">Home</button></a>
+</body>
+</html>
