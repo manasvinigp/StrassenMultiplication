@@ -2,19 +2,16 @@ document.getElementById("multiply-1").addEventListener("click", () => {
   rowA = parseInt(document.getElementById("rowA").value);
   colA = parseInt(document.getElementById("colA").value);
   if (rowA != colA) {
-    alert("Matrix A is not a square Matrix\nNote that Strassen's is efficient for square matrices only");
+    alert("Tip: Matrix A is not a square Matrix\nNote that Strassen's is efficient for square matrices only");
   }
   rowB = parseInt(document.getElementById("rowB").value);
   colB = parseInt(document.getElementById("colB").value);
   if (rowB != colB) {
-    alert("Matrix B is not a square Matrix\nNote that Strassen's is efficient for square matrices only");
+    alert("Tip: Matrix B is not a square Matrix\nNote that Strassen's is efficient for square matrices only");
   }
   if (!isPowerOfTwo(rowA) || !isPowerOfTwo(colA) || !isPowerOfTwo(rowB) || !isPowerOfTwo(colB)) {
     swal("Dimension tip:Strassen's is efficient for dimensions in powers of 2");
-}
-if(rowA>4 || colA>4||rowB>4 || colB>4){
-  alert("Sorry! Our current prototype supports maximum dimension of 4");
-}
+  }
   
   function isPowerOfTwo(n) {
       return (n & (n - 1)) === 0 && n !== 0;
@@ -27,7 +24,12 @@ if(rowA>4 || colA>4||rowB>4 || colB>4){
       "Rows of matrix A is not matching with columns of Matrix B",
       "error"
     );
-  } else {
+  } 
+  else if(rowA>4 || colA>4||rowB>4 || colB>4){
+    alert("Sorry! Our current prototype supports maximum dimension of 4");
+  }
+  else {
+    
     document.querySelector(".container").style.marginTop = "50px";
     document.querySelector(".matrices").style.display = "flex";
     createMat(rowA, colA, document.querySelector(".matA>.matrix"));
