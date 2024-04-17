@@ -43,6 +43,7 @@
             </div>
             
             <h3>Divide-and-Conquer Strategy:</h3>
+            <p>Divide and conquer is a problem-solving method where you break a big problem into smaller ones, solve them, and then combine the solutions. It's efficient because it simplifies complex tasks by breaking them down into manageable chunks. In the context of matrix multiplication:</p>
 <ul>
   <li><strong>Divide:</strong> Break down the input matrices into smaller submatrices.</li>
   <li><strong>Conquer:</strong> Multiply these submatrices recursively until reaching a base case.</li>
@@ -50,6 +51,8 @@
 </ul>
 
 <h3>Strassen's Algorithm Steps:</h3>
+<p>
+  Strassen's algorithm is a specialized application of the divide and conquer approach, specifically tailored for optimizing matrix multiplication tasks.</p>
 <ol>
   <li><strong>Divide Step:</strong><br><br>
     Given two matrices A and B, divide each matrix into four equal-sized submatrices:<br>
@@ -82,23 +85,31 @@
                 Thus,
             </p>
             <img src="materials/Img1.png" alt="" height="60px" width="400px"><br>
+            <p>The Strassen algorithm reduces the number of basic multiplications needed for multiplying two n/2 x n/2 matrices to 7, compared to the standard algorithm, while also requiring 18 matrix additions or subtractions. Since n is a power of 2, it can be represented as 2^k, where k is a non-negative integer. If k equals 0, indicating that n is 1, the time complexity of matrix multiplication is constant, denoted by 1. For k greater than 0, the time complexity of matrix multiplication can be expressed recursively, as shown.</p>
             <img src="materials/Img2.png" alt="" height="60px" width="400px"><br>
             <img src="materials/Img3.png" alt="" height="60px" width="400px"><br>
             <img src="materials/Img4.png" alt="" height="60px" width="400px"><br>
             <img src="materials/Img5.png" alt="" height="80px" width="600px"><br>
-            <p>This meantime, we can explain the time complexity through the following expression, i.e., O(n^2.81). It is evident that the Strassen algorithm was more efficient than the general algorithm for matrix multiplication. In fact, if n is not a power of 2, the matrix can be embedded into another matrix (let the matrix be matrix E) whose number of dimensions is a power of 2. In matrix multiplication, if the dimension of matrix E take minimum value within the design requirement above is achieved, the dimension will increase twofold at most. Thus, the time complexity of Strassen algorithm can still be described as O(n^2.81).</p>
+            <a href="https://www.atlantis-press.com/article/8739.pdf"><h5><center>Reference: Analysis of Strassen's Time Complexity</center></h5></a>
+            <p>The time complexity of Strassen's algorithm is expressed as O(n^2.81), demonstrating its efficiency compared to the general matrix multiplication algorithm. To accommodate matrices with dimensions that are not powers of 2, they can be embedded into larger matrices (e.g., matrix E) with dimensions that are powers of 2. Despite potential dimension adjustments, the time complexity of Strassen's algorithm remains O(n^2.81).</p>
         </div>
         <div id="footer">
             <h3>Resources for further information</h3>
             <ul>
-                <li><a href="https://www.geeksforgeeks.org/strassens-matrix-multiplication/"><h4>geeks for geeks</h4></a></li>
-                <li><a href="https://www.tutorialspoint.com/data_structures_algorithms/strassens_matrix_multiplication_algorithm.htm"><h4>Tutorials Point</h4></a></li>
-                <li><a href="https://www.scaler.com/topics/strassens-matrix-multiplication/"><h4>Scaler</h4></a></li>
-                <li><a href="https://www.codingninjas.com/studio/library/strassens-matrix-multiplication"><h4>Coding Ninjas</h4></a></li>
-                <li><a href="https://medium.com/swlh/strassens-matrix-multiplication-algorithm-936f42c2b344"><h4>Medium.com</h4></a></li>
-                <li><a href="https://blog.computationalcomplexity.org/2022/10/will-strassens-matrix-mult-alg-ever-be.html#:~:text=4%20Strassen%20only%20works%20on,the%20hidden%20cost%20of%20recursion"><h4>The Strassen Algorithm and its Computational Complexity</h4></a></li>
-                <li><a href="https://studenttheses.uu.nl/bitstream/handle/20.500.12932/35943/ThesisWSKTBA5733197.pdf?sequence=1&isAllowed=y"><h4>Will Strassen's Algorithm ever be practical?</h4></a></li>
-            </ul>
+                <li><a href="https://blog.computationalcomplexity.org/2022/10/will-strassens-matrix-mult-alg-ever-be.html#:~:text=4%20Strassen%20only%20works%20on,the%20hidden%20cost%20of%20recursion"><h5>The Strassen Algorithm and its Computational Complexity</h5></a></li>
+                <li><a href="https://studenttheses.uu.nl/bitstream/handle/20.500.12932/35943/ThesisWSKTBA5733197.pdf?sequence=1&isAllowed=y"><h5>Will Strassen's Algorithm ever be practical?</h5></a></li>
+                <li><a href="https://www.atlantis-press.com/article/8739.pdf"><h5>Analysis of Strassen's Time Complexity</h5></a></li>
+                <li><a href="https://stanford.edu/~rezab/classes/cme323/S16/notes/Lecture03/cme323_lec3.pdf"><h5>Strassen's Matrix Multiplication-by Stanford</h5></a></li>
+                <li><a href="https://www.sanfoundry.com/c-program-implement-strassens-algorithm/"><h5>C Program Implementation of Strassen's Algorithm</h5></a></li>
+                <li><a href="https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/recitation-1-divide-conquer-smarter-interval-scheduling-master-theorem-strassens-algorithm/"><h5>Divide and Conquer: Strassen's Algorithm by MIT</h5></a></li>
+                <li><a href="https://www.youtube.com/watch?v=OSelhO6Qnlc"><h5>Strassen's Algorithm by Inside code</h5></a></li>
+                <li><a href="https://algorithm-visualizer.org/"><h5>Algorithm visualizer to understand Divide and Conquer</h5></a></li>
+                <li><a href="https://www.geeksforgeeks.org/strassens-matrix-multiplication/"><h5>geeks for geeks</h5></a></li>
+                <li><a href="https://www.tutorialspoint.com/data_structures_algorithms/strassens_matrix_multiplication_algorithm.htm"><h5>Tutorials Point</h5></a></li>
+                <li><a href="https://www.scaler.com/topics/strassens-matrix-multiplication/"><h5>Scaler</h5></a></li>
+                <li><a href="https://www.codingninjas.com/studio/library/strassens-matrix-multiplication"><h5>Coding Ninjas</h5></a></li>
+                <li><a href="https://medium.com/swlh/strassens-matrix-multiplication-algorithm-936f42c2b344"><h5>Medium.com</h5></a></li>
+             </ul>
         </div>
     </div>
 </body>
