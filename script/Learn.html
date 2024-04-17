@@ -31,7 +31,20 @@
             margin: 0 auto 10px; /* Add some bottom margin for spacing */
         }
         .head{
-            align-items: center;text-align:center        }
+            align-items: center;text-align:center        
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
@@ -92,6 +105,45 @@
             <img src="materials/Img5.png" alt="" height="80px" width="600px"><br>
             <a href="https://www.atlantis-press.com/article/8739.pdf"><h5><center>Reference: Analysis of Strassen's Time Complexity</center></h5></a>
             <p>The time complexity of Strassen's algorithm is expressed as O(n^2.81), demonstrating its efficiency compared to the general matrix multiplication algorithm. To accommodate matrices with dimensions that are not powers of 2, they can be embedded into larger matrices (e.g., matrix E) with dimensions that are powers of 2. Despite potential dimension adjustments, the time complexity of Strassen's algorithm remains O(n^2.81).</p>
+            <p>Summarisation of the algorithm: </p>
+            <table>
+              <tr>
+                  <th>Feature</th>
+                  <th>Description</th>
+              </tr>
+              <tr>
+                  <td>Algorithm Type</td>
+                  <td>Strassen's algorithm is a Divide-and-Conquer approach to matrix multiplication, breaking down the matrices into smaller submatrices for computation.</td>
+              </tr>
+              <tr>
+                  <td>Basic Operation Count</td>
+                  <td>Strassen's algorithm reduces the number of required multiplications from 8 to 7 for two n/2 × n/2 matrices, leading to a theoretical complexity of O(n^log2(7)), approximately O(n^2.807).</td>
+              </tr>
+              <tr>
+                  <td>Complexity</td>
+                  <td>The algorithm's time complexity is advantageous for large matrices due to reduced multiplication operations. However, it may not offer significant improvements for small matrices due to increased overhead.</td>
+              </tr>
+              <tr>
+                  <td>Advantages</td>
+                  <td>- Significantly reduces the number of basic multiplication operations, leading to faster matrix multiplication.<br>
+                      - Particularly effective for large matrices, where the savings in multiplication operations become more pronounced.<br>
+                      - Can outperform traditional cubic algorithms for sufficiently large matrix sizes, making it highly suitable for computational tasks requiring extensive matrix computations.</td>
+              </tr>
+              <tr>
+                  <td>Disadvantages</td>
+                  <td>- Increased overhead due to additional recursive calls and matrix additions/subtractions, making it less efficient for small matrices.<br>
+                      - Requires extra memory for temporary matrices, potentially increasing space complexity.<br>
+                      - May not provide significant performance improvements for small matrices due to overhead, making it less suitable for scenarios involving numerous small matrix computations.<br>
+                      - Most suitable for square matrices of order in the powers of 2, limiting its applicability to matrices with sizes that fit this criterion.</td>
+              </tr>
+              <tr>
+                  <td>Applications</td>
+                  <td>- Widely used in numerical simulations requiring large-scale matrix operations, such as physics simulations and engineering analyses.<br>
+                      - Commonly employed in image processing tasks, including convolution, filtering, and pattern recognition, due to its computational efficiency.<br>
+                      - Vital in scientific computing applications, including solving systems of linear equations, finite element analysis, and computational fluid dynamics, where large matrix computations are prevalent.<br>
+                      - Relevant in cryptography, particularly in algorithms like RSA, where large matrix multiplications are essential for encryption and decryption processes.</td>
+              </tr>
+          </table>
         </div>
         <div id="footer">
             <h3>Resources for further information</h3>
