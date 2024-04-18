@@ -100,16 +100,17 @@
             <img src="materials/Img1.png" alt="" height="60px" width="400px"><br>
             <p>The Strassen algorithm reduces the number of basic multiplications needed for multiplying two n/2 x n/2 matrices to 7, compared to the standard algorithm, while also requiring 18 matrix additions or subtractions. Since n is a power of 2, it can be represented as 2^k, where k is a non-negative integer. If k equals 0, indicating that n is 1, the time complexity of matrix multiplication is constant, denoted by 1. For k greater than 0, the time complexity of matrix multiplication can be expressed recursively using Master Theorem, as shown.</p>
             <img src="materials/Img2.png" alt="" height="60px" width="400px"><br>
-            <p><b>7T(n/2)</b>: represents the time complexity of recursively multiplying the submatrices. Since Strassen's algorithm splits each matrix into seven submatrices, there are seven recursive calls to multiply these submatrices
-            <br><br><b>18(n/2)^2</b>: represents the time complexity of the additional operations involved in combining the results of the subproblems. This includes additions and subtractions of matrices, which are constant time operations but involve (n/2)^2 elements
-            <br>Now consider n=2^k (as n is in powers of 2)
+            <p><b>7T(n/2)</b>: represents the time complexity of recursively multiplying the submatrices. Since Strassen's algorithm splits each matrix into seven submatrices, there are seven recursive calls to multiply these submatrices.
+            <br><br><b>18(n/2)^2</b>: represents the time complexity of the additional operations involved in combining the results of the subproblems. This includes additions and subtractions of matrices, which are constant time operations but involve (n/2)^2 elements.
+            <br><br>Now consider n=2^k (as n is in powers of 2), the equation becomes:
             </p>
             <img src="materials/Img3.png" alt="" height="60px" width="400px"><br>
+            <p>Since,</p>
             <img src="materials/Img4.png" alt="" height="60px" width="400px"><br>
             <p>and,</p>
             <img src="materials/Img5.png" alt="" height="80px" width="600px"><br>
             <a href="https://www.atlantis-press.com/article/8739.pdf"><h5><center>Reference: Analysis of Strassen's Time Complexity</center></h5></a>
-            <p>The time complexity of Strassen's algorithm is expressed as O(n^2.81), demonstrating its efficiency compared to the general matrix multiplication algorithm. To accommodate matrices with dimensions that are not powers of 2, they can be embedded into larger matrices (e.g., matrix E) with dimensions that are powers of 2. Despite potential dimension adjustments, the time complexity of Strassen's algorithm remains O(n^2.81).</p>
+            <p>The time complexity of Strassen's algorithm can be expressed as O(n^2.81), demonstrating its efficiency compared to the general matrix multiplication algorithm. To accommodate matrices with dimensions that are not powers of 2, they can be embedded into larger matrices (e.g., matrix E) with dimensions that are powers of 2. Despite potential dimension adjustments, the time complexity of Strassen's algorithm remains O(n^2.81).</p>
             <p><b>A Summarisation:</b></p>
             <table>
               <tr>
