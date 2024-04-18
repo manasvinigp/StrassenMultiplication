@@ -100,8 +100,9 @@
             <img src="materials/Img1.png" alt="" height="60px" width="400px"><br>
             <p>The Strassen algorithm reduces the number of basic multiplications needed for multiplying two n/2 x n/2 matrices to 7, compared to the standard algorithm, while also requiring 18 matrix additions or subtractions. Since n is a power of 2, it can be represented as 2^k, where k is a non-negative integer. If k equals 0, indicating that n is 1, the time complexity of matrix multiplication is constant, denoted by 1. For k greater than 0, the time complexity of matrix multiplication can be expressed recursively using Master Theorem, as shown.</p>
             <img src="materials/Img2.png" alt="" height="60px" width="400px"><br>
-            <p>7T(n/2) : represents the time complexity of recursively multiplying the submatrices. Since Strassen's algorithm splits each matrix into seven submatrices, there are seven recursive calls to multiply these submatrices
-            <br>18(n/2)^2: represents the time complexity of the additional operations involved in combining the results of the subproblems. This includes additions and subtractions of matrices, which are constant time operations but involve (n/2)^2 elements
+            <p><b>7T(n/2)</b>: represents the time complexity of recursively multiplying the submatrices. Since Strassen's algorithm splits each matrix into seven submatrices, there are seven recursive calls to multiply these submatrices
+            <br><br><b>18(n/2)^2</b>: represents the time complexity of the additional operations involved in combining the results of the subproblems. This includes additions and subtractions of matrices, which are constant time operations but involve (n/2)^2 elements
+            <br>Now consider n=2^k (as n is in powers of 2)
             </p>
             <img src="materials/Img3.png" alt="" height="60px" width="400px"><br>
             <img src="materials/Img4.png" alt="" height="60px" width="400px"><br>
