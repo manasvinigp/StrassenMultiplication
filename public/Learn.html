@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn about Strassen's Algorithm</title>
+    <style>
+        body{
+            background-color: rgb(12,0,31);
+        }
+        #container{
+            width: 90vw;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 25px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: white;
+            padding: 60px;
+            box-sizing: border-box;
+        }
+        #footer{
+            text-align: left;
+        }
+        #left-align {
+            text-align: left;
+            margin-left: 20px;
+        }
+        #left-align img {
+            max-width: 80%; /* Set maximum width for images */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Center images horizontally */
+            margin: 0 auto 10px; /* Add some bottom margin for spacing */
+        }
+        .head{
+            align-items: center;text-align:center        
+        }
+        #table1 {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #table1 td {
+            border: 5px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        #table1 th {
+            background-color: rgb(12,0,31);
+            color: white;
+            border: 5px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        #table2 th, td {
+            border: 5px solid white;
+            padding: 8px;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        <div id="left-align">
+            <div class="head">
+                <h2>What is Strassen's Matrix Multiplication?</h2>
+            </div>
+            <br>
+            <h3>Divide-and-Conquer Strategy:</h3>
+            <p>Divide and conquer is a problem-solving method where you break a big problem into smaller ones, solve them, and then combine the solutions. It's efficient because it simplifies complex tasks by breaking them down into manageable chunks. In the context of matrix multiplication:</p>
+<ul>
+  <li><strong>Divide:</strong> Break down the input matrices into smaller submatrices.</li>
+  <li><strong>Conquer:</strong> Multiply these submatrices recursively until reaching a base case.</li>
+  <li><strong>Combine:</strong> Combine the results of the smaller multiplications to obtain the final result.</li>
+</ul>
+
+<div align="center">
+    <img src="materials\dandc.jpg" alt="Divideandconquer" width="500" height="500">
+</div>
+
+<h3>Strassen's Algorithm Steps:</h3>
+<p>
+  Strassen's algorithm is a specialized application of the divide and conquer approach, specifically tailored for optimizing matrix multiplication tasks.</p>
+<ol>
+    <video controls width="750" height="500">
+        <source src="materials\StrassenMatrixMultiplication.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+  <li><strong>Divide Step:</strong><br><br>
+    Given two matrices A and B, divide each matrix into four equal-sized submatrices:<br>
+    A = [[A11, A12], [A21, A22]]<br>
+    B = [[B11, B12], [B21, B22]]</li><br>
+  <li><strong>Conquer Step:</strong><br><br>
+    Recursively compute seven matrix products:<br>
+    <ul>
+    <li>M1 = (A11 + A22)(B11 + B22)</li>
+    <li>M2 = (A21 + A22)B11</li>
+    <li>M3 = A11(B12 - B22)</li>
+    <li>M4 = A22(B21 - B11)</li>
+    <li>M5 = (A11 + A12)B22</li>
+    <li>M6 = (A21 - A11)(B11 + B12)</li>
+    <li>M7 = (A12 - A22)(B21 + B22)</li>
+    </ul>
+  </li><br>
+  <li><strong>Combine Step:</strong><br><br>
+    Compute the resulting submatrices of the product matrix C using the following equations:<br>
+    <ul>
+      <li>C11 = M1 + M4 - M5 + M7</li>
+      <li>C12 = M3 + M5</li>
+      <li>C21 = M2 + M4</li>
+      <li>C22 = M1 + M3 - M2 + M6</li>
+    </ul>
+  </li>
+</ol>
+
+            <p>
+                Thus,
+            </p>
+            <img src="materials/Img1.png" alt="" height="100px" width="400px">
+            <p>The Strassen algorithm reduces the number of basic multiplications needed for multiplying two n/2 x n/2 matrices to 7, compared to the standard algorithm, while also requiring 18 matrix additions or subtractions. Since n is a power of 2, it can be represented as 2^k, where k is a non-negative integer. If k equals 0, indicating that n is 1, the time complexity of matrix multiplication is constant, denoted by 1. For k greater than 0, the time complexity of matrix multiplication can be expressed recursively using Master Theorem, as shown.</p>
+            <img src="materials/Img2.png" alt="" height="60px" width="400px"><br>
+            <p><b>7T(n/2)</b>: represents the time complexity of recursively multiplying the submatrices. Since Strassen's algorithm splits each matrix into seven submatrices, there are seven recursive calls to multiply these submatrices.
+            <br><br><b>18(n/2)^2</b>: represents the time complexity of the additional operations involved in combining the results of the subproblems. This includes additions and subtractions of matrices, which are constant time operations but involve (n/2)^2 elements.
+            <br><br>Now consider n=2^k (as n is in powers of 2), the equation becomes:
+            </p>
+            <img src="materials/Img3.png" alt="" height="60px" width="400px"><br>
+            <p>Since,</p>
+            <img src="materials/Img4.png" alt="" height="60px" width="400px"><br>
+            <p>and,</p>
+            <img src="materials/Img5.png" alt="" height="80px" width="600px"><br>
+            <a href="https://www.atlantis-press.com/article/8739.pdf"><h5><center>Reference: Analysis of Strassen's Time Complexity</center></h5></a>
+            <p>The time complexity of Strassen's algorithm can be expressed as O(n^2.81), demonstrating its efficiency compared to the general matrix multiplication algorithm. To accommodate matrices with dimensions that are not powers of 2, they can be embedded into larger matrices (e.g., matrix E) with dimensions that are powers of 2. Despite potential dimension adjustments, the time complexity of Strassen's algorithm remains O(n^2.81).</p>
+            <p><b>A Summarisation:</b></p>
+            <table id="table1">
+              <tr>
+                  <th>Feature</th>
+                  <th>Description</th>
+              </tr>
+              <tr>
+                  <td>Algorithm Type</td>
+                  <td>Strassen's algorithm is a Divide-and-Conquer approach to matrix multiplication, breaking down the matrices into smaller submatrices for computation.</td>
+              </tr>
+              <tr>
+                  <td>Basic Operation Count</td>
+                  <td>Strassen's algorithm reduces the number of required multiplications from 8 to 7 for two n/2 × n/2 matrices, leading to a theoretical complexity of O(n^log2(7)), approximately O(n^2.807).</td>
+              </tr>
+              <tr>
+                  <td>Complexity</td>
+                  <td>The algorithm's time complexity is advantageous for large matrices due to reduced multiplication operations. However, it may not offer significant improvements for small matrices due to increased overhead.</td>
+              </tr>
+              <tr>
+                  <td>Advantages</td>
+                  <td>- Significantly reduces the number of basic multiplication operations, leading to faster matrix multiplication.<br>
+                      - Particularly effective for large matrices, where the savings in multiplication operations become more pronounced.<br>
+                      - Can outperform traditional cubic algorithms for sufficiently large matrix sizes, making it highly suitable for computational tasks requiring extensive matrix computations.</td>
+              </tr>
+              <tr>
+                  <td>Disadvantages</td>
+                  <td>- Increased overhead due to additional recursive calls and matrix additions/subtractions, making it less efficient for small matrices.<br>
+                      - Requires extra memory for temporary matrices, potentially increasing space complexity.<br>
+                      - May not provide significant performance improvements for small matrices due to overhead, making it less suitable for scenarios involving numerous small matrix computations.<br>
+                      - Most suitable for square matrices of order in the powers of 2, limiting its applicability to matrices with sizes that fit this criterion.</td>
+              </tr>
+              <tr>
+                  <td>Applications</td>
+                  <td>- Widely used in numerical simulations requiring large-scale matrix operations, such as physics simulations and engineering analyses.<br>
+                      - Commonly employed in image processing tasks, including convolution, filtering, and pattern recognition, due to its computational efficiency.<br>
+                      - Vital in scientific computing applications, including solving systems of linear equations, finite element analysis, and computational fluid dynamics, where large matrix computations are prevalent.<br>
+                      - Relevant in cryptography, particularly in algorithms like RSA, where large matrix multiplications are essential for encryption and decryption processes.</td>
+              </tr>
+          </table>
+        </div>
+  
+        <div id="footer">
+            <h3>Resources for further information</h3>
+            <table id="table2">
+                <tr>
+                   <td><a href="https://www.youtube.com/embed/0oJyNmEbS4w?si=3gcJtfPce89fQDjb"><h5>Strassen's Matrix Multiplication by Abdul Bari</h5></a>
+                    <iframe width="500" height="315" src="https://www.youtube.com/embed/0oJyNmEbS4w?si=3gcJtfPce89fQDjb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                   </td> 
+                   <td><a href="https://www.youtube.com/embed/OSelhO6Qnlc?si=wdcLzWfzLZYwzuPn "><h5>Strassen's Algorithm by Inside code</h5></a>
+                    <iframe width="500" height="315" src="https://www.youtube.com/embed/OSelhO6Qnlc?si=wdcLzWfzLZYwzuPn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                   </td> 
+                </tr>
+                <tr>
+                    <td><a href="https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/recitation-1-divide-conquer-smarter-interval-scheduling-master-theorem-strassens-algorithm/"><h5>Divide and Conquer: Strassen's Algorithm by MIT</h5></a>
+                        <embed src="https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/recitation-1-divide-conquer-smarter-interval-scheduling-master-theorem-strassens-algorithm/" width="500" height="300">
+                    </td>
+                    <td><a href="https://algorithm-visualizer.org/"><h5>Algorithm visualizer to understand Divide and Conquer</h5></a>
+                        <embed src="https://algorithm-visualizer.org/" width="500" height="300">
+                    </td>
+                </tr>
+                <tr>
+                <td><a href="https://stanford.edu/~rezab/classes/cme323/S16/notes/Lecture03/cme323_lec3.pdf"><h5>Strassen's Matrix Multiplication-by Stanford</h5></a>
+                        <embed src="https://stanford.edu/~rezab/classes/cme323/S16/notes/Lecture03/cme323_lec3.pdf" width="500" height="300">
+                </td>
+                <td><a href="https://studenttheses.uu.nl/bitstream/handle/20.500.12932/35943/ThesisWSKTBA5733197.pdf?sequence=1&isAllowed=y"><h5>Will Strassen's Algorithm ever be practical?</h5></a>
+                    <embed  src="https://studenttheses.uu.nl/bitstream/handle/20.500.12932/35943/ThesisWSKTBA5733197.pdf?sequence=1&isAllowed=y" width="500" height="300">
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <ul>
+                <li><a href="https://medium.com/swlh/strassens-matrix-multiplication-algorithm-936f42c2b344"><h5>Strassen's Matrix multiplication-Blog on Medium</h5></a></li>
+                <li><a href="https://blog.computationalcomplexity.org/2022/10/will-strassens-matrix-mult-alg-ever-be.html#:~:text=4%20Strassen%20only%20works%20on,the%20hidden%20cost%20of%20recursion"><h5>The Strassen Algorithm and its Computational Complexity</h5></a></li>
+                <li><a href="https://www.atlantis-press.com/article/8739.pdf"><h5>Analysis of Strassen's Time Complexity</h5></a></li>
+                <li><a href="https://www.sanfoundry.com/c-program-implement-strassens-algorithm/"><h5>C Program Implementation of Strassen's Algorithm</h5></a></li>
+                <li><a href="https://www.geeksforgeeks.org/strassens-matrix-multiplication/"><h5>Learn from: Geeks for Geeks</h5></a></li>
+                <li><a href="https://www.tutorialspoint.com/data_structures_algorithms/strassens_matrix_multiplication_algorithm.htm"><h5>Learn from: Tutorials Point</h5></a></li>
+                <li><a href="https://www.scaler.com/topics/strassens-matrix-multiplication/"><h5>Learn from: Scaler</h5></a></li>
+                <li><a href="https://www.codingninjas.com/studio/library/strassens-matrix-multiplication"><h5>Learn from: Coding Ninjas</h5></a></li>
+                </ul>
+                </td> 
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
