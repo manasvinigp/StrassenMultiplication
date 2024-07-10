@@ -5,66 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Strassen's Matrix Multiplication</title>
     <style>
-        body{
-            margin: 0px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        body {
+            margin: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
-        .container{
-            width: 90vw;margin: 0 auto;padding: 0px;
-            display: flex;flex-direction: column;flex-wrap: wrap;background-color: 	#ebe8e8;
+        .container {
+            width: 90vw;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            background-color: #ebe8e8;
         }
-        #header{
-            height: 15vh;margin: 0px;
-            display: flex;justify-content: flex-start;background-color: rgb(248, 248, 248);
+        #header {
+            height: 15vh;
+            margin: 0;
+            display: flex;
+            justify-content: flex-start;
+            background-color: rgb(248, 248, 248);
         }
-        #content{
-            height: 85vh;display: flex;flex-direction: column;align-items: center;
+        #content {
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        #para{
-            width: 80%;height: 400px;display: flex;flex-direction: column;align-items: center;justify-content: center;flex-wrap: wrap;margin: 0 auto;
+        #para {
+            width: 80%;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 0 auto;
         }
-        .Text{
-            padding: 40px;text-align: center;margin: 0 auto;
+        .Text {
+            padding: 40px;
+            text-align: center;
+            margin: 0 auto;
         }
-        #buttons{
-            padding:20px 200px;
-            display: flex;justify-content: space-around;align-content: space-evenly;       }
-        button{
-            padding: 10px 15px;margin: 10px;border: none;border-radius: 40px;background-color: #373333;color: white;cursor: pointer;
+        #buttons {
+            padding: 20px 200px;
+            display: flex;
+            justify-content: space-around;
+            align-content: space-evenly;
         }
-        button:hover{
-            background-color: rgb(12, 0, 31);color: white;
+        button {
+            padding: 15px 25px; /* Adjusted padding */
+            margin: 10px;
+            border: none;
+            border-radius: 40px;
+            background-color: #373333;
+            color: white;
+            cursor: pointer;
+            font-size: 18px; /* Adjusted font size */
         }
-        .logo{
-        width: 50%;align-items: center;
+        button:hover {
+            background-color: rgb(12, 0, 31);
+            color: white;
         }
-        .new{
-           width: 50%;font-size: 20px;align-items: center;display: flex;justify-content: flex-end;
+        .logo {
+            width: 50%;
+            align-items: center;
         }
-        #lg{
-            margin-left: 60px;margin-top: 3%;
+        .new {
+            width: 50%;
+            font-size: 20px;
+            align-items: center;
+            display: flex;
+            justify-content: flex-end;
         }
-        a{
-            text-decoration: none;margin-right: 60px;
+        #lg {
+            margin-left: 60px;
+            margin-top: 3%;
         }
-        #about{
-           margin-top: 10px;
-            margin-right: 20px;padding-right: 60px;padding: 10px;display: inline;font-weight: bold;color: black;
+        a {
+            text-decoration: none;
+            margin-right: 60px;
         }
-        #about:hover{
-            background-color: rgb(12, 0, 31);color: white;
+        #about {
+            margin-top: 10px;
+            margin-right: 20px;
+            padding-right: 60px;
+            padding: 10px;
+            display: inline;
+            font-weight: bold;
+            color: black;
         }
-
+        #about:hover {
+            background-color: rgb(12, 0, 31);
+            color: white;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div id="header">
-            <div class="logo"><a href="https://rvce.edu.in/"><img src="materials/rvlogo.png" alt="Logo" height="60px" id="lg"></a></div>
-            <div class="new"><a href="about.html"><p id="about">About Us</p></a></div>
+            <div class="logo">
+                <a href="https://rvce.edu.in/">
+                    <img src="materials/rvlogo.png" alt="Logo" height="60px" id="lg">
+                </a>
+            </div>
+            <div class="new">
+                <a href="about.html">
+                    <p id="about">About Us</p>
+                </a>
+            </div>
         </div>
         <div id="content">
             <div id="para">
-                <span><H1>Strassen's Matrix Multiplication</H1></span>
+                <h1>Strassen's Matrix Multiplication</h1>
                 <span class="Text">Strassen's Algorithm, developed by Volker Strassen in 1969, revolutionized matrix multiplication by introducing a divide-and-conquer approach that reduces the number of required arithmetic operations compared to traditional methods. By recursively partitioning matrices and utilizing seven multiplications instead of eight, it drastically reduces time complexity from O(n^3) to O(n^log₂7). This breakthrough has paved the way for faster computations in various fields like computer graphics and scientific computing.</span>
             </div>
             <div id="buttons">
@@ -72,6 +124,7 @@
                 <a href="main.html"><button>Try it out on simulator</button></a>
                 <a href="Graph.html"><button>Analyze Algorithm Performance </button></a>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2iLkWhfhQeQAi1oheVVbItHDoHhFJpmdVxWAu1MPWcdrbIg/viewform"><button>Feedback</button></a>
+                <a href="quiz.html"><button>Take the Quiz</button></a>
             </div>
         </div>
     </div>
