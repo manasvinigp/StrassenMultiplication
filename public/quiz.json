@@ -1,0 +1,313 @@
+[
+      {
+        "question": "What is the base case for Strassen's algorithm?",
+        "options": ["2x2 matrix", "3x3 matrix", "1x1 matrix", "n x n matrix"],
+        "answer": "2x2 matrix"
+      },
+      {
+        "question": "How many multiplications does Strassen's algorithm perform for two 2x2 matrices?",
+        "options": ["4", "6", "7", "8"],
+        "answer": "7"
+      },
+      {
+        "question": "How many additions/subtractions does Strassen's algorithm require for two 2x2 matrices?",
+        "options": ["10", "14", "18", "20"],
+        "answer": "10"
+      },
+      {
+        "question": "What is the recurrence relation for Strassen's algorithm?",
+        "options": ["T(n) = 8T(n/2) + O(n^2)", "T(n) = 7T(n/2) + O(n^2)", "T(n) = 7T(n/3) + O(n^2)", "T(n) = 8T(n/3) + O(n^2)"],
+        "answer": "T(n) = 7T(n/2) + O(n^2)"
+      },
+      {
+        "question": "Strassen's algorithm reduces the time complexity of matrix multiplication from O(n^3) to approximately:",
+        "options": ["O(n^2.5)", "O(n^2.81)", "O(n^2.71)", "O(n^2.61)"],
+        "answer": "O(n^2.81)"
+      },
+      {
+        "question": "Which of the following is a step in Strassen's algorithm?",
+        "options": ["Divide matrices into four submatrices", "Use the standard algorithm for submatrices", "Combine results using matrix addition", "All of the above"],
+        "answer": "All of the above"
+      },
+      {
+        "question": "How many submatrices are formed when applying Strassen's algorithm to an n x n matrix?",
+        "options": ["2", "4", "6", "8"],
+        "answer": "4"
+      },
+      {
+        "question": "The matrices in Strassen's algorithm are divided into smaller submatrices of size:",
+        "options": ["n/2 x n/2", "n/3 x n/3", "n/4 x n/4", "n/8 x n/8"],
+        "answer": "n/2 x n/2"
+      },
+      {
+        "question": "How many addition operations are there in the matrix multiplication using Strassen's algorithm?",
+        "options": ["6", "7", "8", "18"],
+        "answer": "6"
+      },
+      {
+        "question": "Strassen's algorithm is especially useful for very large matrices due to its:",
+        "options": ["Simplicity", "Reduced computational complexity", "High memory usage", "Reduced memory usage"],
+        "answer": "Reduced computational complexity"
+      },
+      {
+        "question": "What is the critical operation count in Strassen's algorithm for multiplying two matrices?",
+        "options": ["Addition", "Subtraction", "Multiplication", "Division"],
+        "answer": "Multiplication"
+      },
+      {
+        "question": "Which of the following is NOT an operation in Strassen's algorithm?",
+        "options": ["P1 = A11 (B12 - B22)", "P2 = (A11 + A12) B22", "P3 = (A21 + A22) B11", "P4 = A22 (B21 - B11)"],
+        "answer": "P4 = A22 (B21 - B11)"
+      },
+      {
+        "question": "What is the dimension of the resulting matrix after multiplying two n x n matrices using Strassen's algorithm?",
+        "options": ["n x n", "n x 2n", "2n x n", "2n x 2n"],
+        "answer": "n x n"
+      },
+      {
+        "question": "Which part of Strassen's algorithm is responsible for reducing the number of multiplications?",
+        "options": ["Matrix splitting", "Matrix recombination", "Recursive calls", "Special linear combinations of matrices"],
+        "answer": "Special linear combinations of matrices"
+      },
+      {
+        "question": "Strassen's algorithm is particularly more efficient than the standard algorithm when:",
+        "options": ["n is very small", "n is a power of 2", "n is very large", "n is prime"],
+        "answer": "n is a power of 2"
+      },
+      {
+        "question": "How does Strassen's algorithm handle the multiplication of matrices of sizes that are not powers of 2?",
+        "options": ["Pads matrices with zeros", "Uses a different algorithm", "Truncates the matrices", "Multiplies directly without changes"],
+        "answer": "Pads matrices with zeros"
+      },
+      {
+        "question": "What is the total number of operations (multiplications and additions/subtractions) required in Strassen's algorithm for a single step?",
+        "options": ["23", "21", "19", "17"],
+        "answer": "7"
+      },
+      {
+        "question": "In Strassen's algorithm, which combination step is used to compute the final submatrix C11?",
+        "options": ["P5 + P4 - P2 + P6", "P1 + P2", "P1 + P5 - P3 - P7", "P3 + P5"],
+        "answer": "P1 + P5 - P3 - P7"
+      },
+      {
+        "question": "Which of the following is a correct combination step in Strassen's algorithm for computing C12?",
+        "options": ["P1 + P2", "P3 + P5", "P3 + P4", "P1 + P2 - P3 + P6"],
+        "answer": "P1 + P2"
+      },
+      {
+        "question": "For an odd-sized matrix, what must be done before applying Strassen's algorithm?",
+        "options": ["Transpose the matrix", "Pad the matrix with zeros to make it even-sized", "Reduce the matrix size", "None of the above"],
+        "answer": "Pad the matrix with zeros to make it even-sized"
+      },
+      {
+        "question": "Which of the following does Strassen's algorithm improve upon compared to the conventional method?",
+        "options": ["Number of additions", "Number of multiplications", "Number of subtractions", "All of the above"],
+        "answer": "Number of multiplications"
+      },
+      {
+        "question": "What is the major challenge in implementing Strassen's algorithm for large matrices?",
+        "options": ["Managing large memory requirements", "Ensuring numerical stability", "Handling non-power-of-2 matrices", "All of the above"],
+        "answer": "All of the above"
+      },
+      {
+        "question": "In Strassen's algorithm, the matrix product can be divided into smaller subproblems by:",
+        "options": ["Solving directly for small matrices", "Dividing the matrices into four submatrices", "Combining results recursively", "Using matrix inversion"],
+        "answer": "Combining results recursively"
+      },
+      {
+        "question": "Which operation is not used directly in the basic implementation of Strassen's algorithm?",
+        "options": ["Matrix transposition", "Matrix addition", "Matrix subtraction", "Matrix multiplication"],
+        "answer": "Matrix transposition"
+      },
+      {
+        "question": "What kind of matrices can Strassen's algorithm be applied to directly without any modifications?",
+        "options": ["Sparse matrices", "Dense matrices", "Diagonal matrices", "Symmetric matrices"],
+        "answer": "Dense matrices"
+      },
+      {
+        "question": "The efficiency of Strassen's algorithm primarily comes from reducing the number of:",
+        "options": ["Additions", "Multiplications", "Divisions", "Subtractions"],
+        "answer": "Multiplications"
+      },
+      {
+        "question": "The crossover point where Strassen’s algorithm becomes more efficient than the standard method is typically:",
+        "options": ["For small matrices", "For medium-sized matrices", "For large matrices", "For diagonal matrices"],
+        "answer": "For large matrices"
+      },
+      {
+        "question": "Strassen’s algorithm is particularly advantageous in:",
+        "options": ["Numerical precision", "High-dimensional matrix multiplication", "Graph theory problems", "Solving linear equations"],
+        "answer": "High-dimensional matrix multiplication"
+      },
+      {
+        "question": "Which step in Strassen's algorithm computes the final submatrix C21?",
+        "options": ["P1 + P5", "P1 + P2", "P3 - P4", "P3 + P5"],
+        "answer": "P3 + P5"
+      },
+      {
+        "question": "Which of the following is true about Strassen's algorithm?",
+        "options": ["It is limited to square matrices", "It can handle matrices of any size", "It requires matrices to be sparse", "It cannot handle matrices larger than 4x4"],
+        "answer": "It can handle matrices of any size"
+      },
+      {
+        "question": "What is the main advantage of Strassen's algorithm over the naive matrix multiplication algorithm?",
+        "options": ["Lower time complexity", "Lower space complexity", "Higher numerical stability", "Simpler implementation"],
+        "answer": "Lower time complexity"
+      },
+      {
+        "question": "Which operation is used to compute P6 in Strassen's algorithm?",
+        "options": ["P1 = A11 (B12 - B22)", "P2 = (A11 + A12) B22", "P3 = (A21 + A22) B11", "P6 = (A21 - A11) (B11 + B12)"],
+        "answer": "P6 = (A21 - A11) (B11 + B12)"
+      },
+      {
+        "question": "Strassen's algorithm reduces the number of multiplications in matrix multiplication from 8 to:",
+        "options": ["6", "7", "9", "10"],
+        "answer": "7"
+      },
+      {
+        "question": "In Strassen's algorithm, what does P1 represent?",
+        "options": ["A11 (B12 - B22)", "A11 (B12 + B22)", "A12 (B21 + B22)", "A21 (B11 + B12)"],
+        "answer": "A11 (B12 - B22)"
+      },
+      {
+        "question": "Which of the following is a characteristic feature of Strassen's algorithm?",
+        "options": ["Requires more additions than standard matrix multiplication", "Requires fewer multiplications than standard matrix multiplication", "Has higher space complexity than standard matrix multiplication", "Has lower time complexity than standard matrix multiplication"],
+        "answer": "Has lower time complexity than standard matrix multiplication"
+      },
+      {
+        "question": "What is the space complexity of Strassen's algorithm?",
+        "options": ["O(n^2)", "O(n^2.5)", "O(n^3)", "O(n)"],
+        "answer": "O(n^2)"
+      },
+      {
+        "question": "Which of the following steps is used to compute P6 in Strassen's algorithm?",
+        "options": ["P1 = A11 (B12 - B22)", "P2 = (A11 + A12) B22", "P3 = (A21 + A22) B11", "P6 = (A21 - A11) (B11 + B12)"],
+        "answer": "P6 = (A21 - A11) (B11 + B12)"
+      },
+      {
+        "question": "Strassen's algorithm is more efficient than the naive matrix multiplication algorithm when:",
+        "options": ["Matrices are sparse", "Matrices are dense", "Matrices are symmetric", "Matrices are diagonal"],
+        "answer": "Matrices are dense"
+      },
+      {
+        "question": "Which of the following is NOT a valid step in Strassen's algorithm?",
+        "options": ["P1 = A11 (B12 - B22)", "P2 = (A11 + A12) B22", "P3 = (A21 + A22) B11", "P4 = A21 (B11 + B22)"],
+        "answer": "P4 = A21 (B11 + B22)"
+      },
+      {
+        "question": "Strassen's algorithm reduces the number of multiplications by:",
+        "options": ["Using more recursive steps", "Applying special linear combinations of matrices", "Truncating matrices to smaller sizes", "Using higher degree of parallelism"],
+        "answer": "Applying special linear combinations of matrices"
+      },
+      {
+        "question": "What is the time complexity of Strassen's algorithm?",
+        "options": ["O(n^3)", "O(n^2.5)", "O(n^2.81)", "O(n^2)"],
+        "answer": "O(n^2.81)"
+      },
+      {
+        "question": "Which of the following is NOT a primary motivation behind using Strassen's algorithm?",
+        "options": ["Reducing memory consumption", "Reducing time complexity", "Handling large matrices", "Guaranteeing numerical stability"],
+        "answer": "Guaranteeing numerical stability"
+      },
+      {
+        "question": "In Strassen's algorithm, what does P5 represent?",
+        "options": ["(A11 - A21) (B11 + B12)", "(A11 + A12) (B21 - B22)", "(A11 + A22) (B11 + B22)", "(A12 - A22) (B21 + B22)"],
+        "answer": "(A11 - A21) (B11 + B12)"
+      },
+      {
+        "question": "What is the major drawback of Strassen's algorithm compared to the naive matrix multiplication algorithm?",
+        "options": ["Higher time complexity", "Increased space complexity", "Limited applicability to large matrices", "Lower numerical stability"],
+        "answer": "Lower numerical stability"
+      },
+      {
+        "question": "Which of the following best describes the asymptotic behavior of Strassen's algorithm compared to the standard matrix multiplication algorithm?",
+        "options": ["Strassen's algorithm is always faster", "Strassen's algorithm is faster for all sizes of matrices", "Strassen's algorithm is faster for large matrices", "Strassen's algorithm is faster for small matrices"],
+        "answer": "Strassen's algorithm is faster for large matrices"
+      },
+      {
+        "question": "Which step in Strassen's algorithm computes the final submatrix C21?",
+        "options": ["P1 + P5", "P1 + P2", "P3 - P4", "P3 + P5"],
+        "answer": "P3 + P5"
+      },
+      {
+        "question": "Which of the following is true about Strassen's algorithm?",
+        "options": ["It is limited to square matrices", "It can handle matrices of any size", "It requires matrices to be sparse", "It cannot handle matrices larger than 4x4"],
+        "answer": "It can handle matrices of any size"
+      },
+      {
+        "question": "What is the main advantage of Strassen's algorithm over the naive matrix multiplication algorithm?",
+        "options": ["Lower time complexity", "Lower space complexity", "Higher numerical stability", "Simpler implementation"],
+        "answer": "Lower time complexity"
+      },
+      {
+        "question": "Which operation is used to compute P6 in Strassen's algorithm?",
+        "options": ["P1 = A11 (B12 - B22)", "P2 = (A11 + A12) B22", "P3 = (A21 + A22) B11", "P6 = (A21 - A11) (B11 + B12)"],
+        "answer": "P6 = (A21 - A11) (B11 + B12)"
+      },
+      {
+        "question": "Strassen's algorithm reduces the number of multiplications in matrix multiplication from 8 to:",
+        "options": ["6", "7", "9", "10"],
+        "answer": "7"
+      },
+      {
+        "question": "In Strassen's algorithm, what does P1 represent?",
+        "options": ["A11 (B12 - B22)", "A11 (B12 + B22)", "A12 (B21 + B22)", "A21 (B11 + B12)"],
+        "answer": "A11 (B12 - B22)"
+      },
+      {
+        "question": "Which of the following is a characteristic feature of Strassen's algorithm?",
+        "options": ["Requires more additions than standard matrix multiplication", "Requires fewer multiplications than standard matrix multiplication", "Has higher space complexity than standard matrix multiplication", "Has lower time complexity than standard matrix multiplication"],
+        "answer": "Has lower time complexity than standard matrix multiplication"
+      },
+      {
+        "question": "What is the space complexity of Strassen's algorithm?",
+        "options": ["O(n^2)", "O(n^2.5)", "O(n^3)", "O(n)"],
+        "answer": "O(n^2)"
+      },
+      {
+        "question": "Which of the following steps is used to compute P6 in Strassen's algorithm?",
+        "options": ["P1 = A11 (B12 - B22)", "P2 = (A11 + A12) B22", "P3 = (A21 + A22) B11", "P6 = (A21 - A11) (B11 + B12)"],
+        "answer": "P6 = (A21 - A11) (B11 + B12)"
+      },
+      {
+        "question": "Strassen's algorithm is more efficient than the naive matrix multiplication algorithm when:",
+        "options": ["Matrices are sparse", "Matrices are dense", "Matrices are symmetric", "Matrices are diagonal"],
+        "answer": "Matrices are dense"
+      },
+      {
+        "question": "Which of the following is NOT a valid step in Strassen's algorithm?",
+        "options": ["P1 = A11 (B12 - B22)", "P2 = (A11 + A12) B22", "P3 = (A21 + A22) B11", "P4 = A21 (B11 + B22)"],
+        "answer": "P4 = A21 (B11 + B22)"
+      },
+      {
+        "question": "Strassen's algorithm reduces the number of multiplications by:",
+        "options": ["Using more recursive steps", "Applying special linear combinations of matrices", "Truncating matrices to smaller sizes", "Using higher degree of parallelism"],
+        "answer": "Applying special linear combinations of matrices"
+      },
+      {
+        "question": "What is the time complexity of Strassen's algorithm?",
+        "options": ["O(n^3)", "O(n^2.5)", "O(n^2.81)", "O(n^2)"],
+        "answer": "O(n^2.81)"
+      },
+      {
+        "question": "Which of the following is NOT a primary motivation behind using Strassen's algorithm?",
+        "options": ["Reducing memory consumption", "Reducing time complexity", "Handling large matrices", "Guaranteeing numerical stability"],
+        "answer": "Guaranteeing numerical stability"
+      },
+      {
+        "question": "In Strassen's algorithm, what does P5 represent?",
+        "options": ["(A11 - A21) (B11 + B12)", "(A11 + A12) (B21 - B22)", "(A11 + A22) (B11 + B22)", "(A12 - A22) (B21 + B22)"],
+        "answer": "(A11 - A21) (B11 + B12)"
+      },
+      {
+        "question": "What is the major drawback of Strassen's algorithm compared to the naive matrix multiplication algorithm?",
+        "options": ["Higher time complexity", "Increased space complexity", "Limited applicability to large matrices", "Lower numerical stability"],
+        "answer": "Lower numerical stability"
+      },
+      {
+        "question": "Which of the following best describes the asymptotic behavior of Strassen's algorithm compared to the standard matrix multiplication algorithm?",
+        "options": ["Strassen's algorithm is always faster", "Strassen's algorithm is faster for all sizes of matrices", "Strassen's algorithm is faster for large matrices", "Strassen's algorithm is faster for small matrices"],
+        "answer": "Strassen's algorithm is faster for large matrices"
+      }
+    ]
+  
