@@ -5,6 +5,7 @@
   "main": "index.js",
   "keywords": [],
   "author": "",
+  "homepage": "/build",
   "license": "ISC",
   "private": true,
   "dependencies": {

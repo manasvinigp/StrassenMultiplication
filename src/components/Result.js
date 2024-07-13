@@ -7,7 +7,7 @@ const Result = () => {
 
     const goToHomepage = () => {
         // Redirect to index.html in the script folder
-        window.location.href = '/script/index.html';
+        window.location.href = 'https://strassen-matrixmultiplication.netlify.app/index.html';
     };
     
     return (

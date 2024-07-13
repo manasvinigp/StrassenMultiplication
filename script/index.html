@@ -140,7 +140,7 @@
                 <a href="Learn.html"><button>Learn</button></a>
                 <a href="main.html"><button>Try it out on simulator</button></a>
                 <a href="Graph.html"><button>Analyze Algorithm Performance</button></a>
-                <a href="./build/index.html"><button>Take the Quiz</button></a>
+                <button id="quizButton">Take the Quiz</button>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2iLkWhfhQeQAi1oheVVbItHDoHhFJpmdVxWAu1MPWcdrbIg/viewform"><button>Feedback</button></a>
             </div>
         </div>
@@ -153,8 +153,10 @@
             </pre>
         </div>
     </div>
-
     <script>
+        document.getElementById('quizButton').addEventListener('click', function() {
+            window.renderReactApp(); // Call the function defined in index.js
+        });
         // Function to check if an element is in viewport
         function isInViewport(element) {
             var rect = element.getBoundingClientRect();
@@ -200,5 +202,7 @@
             animateElementsOnScroll();
         });
     </script>
+
+<script src="src\index.js"></script>
 </body>
 </html>
