@@ -153,56 +153,74 @@
             </pre>
         </div>
     </div>
+        
+    <script src="../src/index.js"></script>
     <script>
-        document.getElementById('quizButton').addEventListener('click', function() {
-            window.renderReactApp(); // Call the function defined in index.js
-        });
-        // Function to check if an element is in viewport
-        function isInViewport(element) {
-            var rect = element.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-            );
-        }
-
-        // Function to handle scroll event for showing elements
-        function animateElementsOnScroll() {
-            var para = document.getElementById('para');
-            var text = document.querySelector('.Text');
-            var video = document.querySelector('video');
-            var buttons = document.getElementById('buttons');
-
-            if (isInViewport(para)) {
-                para.style.opacity = 1;
-                para.style.transform = 'translateY(0)';
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ensure DOM is fully loaded before attaching event listeners
+            var quizButton = document.getElementById('quizButton');
+            if (quizButton) {
+                quizButton.addEventListener('click', function() {
+                    if (window.renderReactApp) {
+                        window.renderReactApp(); // Call the function defined in index.js
+                    } else {
+                        console.error('renderReactApp function not found.');
+                    }
+                });
+            } else {
+                console.error('quizButton element not found.');
+            }
+            
+            // Function to check if an element is in viewport
+            function isInViewport(element) {
+                var rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+                );
             }
 
-            if (isInViewport(text)) {
-                text.style.opacity = 1;
-                text.style.transform = 'translateY(0)';
+            // Function to handle scroll event for showing elements
+            function animateElementsOnScroll() {
+                var para = document.getElementById('para');
+                var text = document.querySelector('.Text');
+                var video = document.querySelector('video');
+                var buttons = document.getElementById('buttons');
+
+                if (isInViewport(para)) {
+                    para.style.opacity = 1;
+                    para.style.transform = 'translateY(0)';
+                }
+
+                if (isInViewport(text)) {
+                    text.style.opacity = 1;
+                    text.style.transform = 'translateY(0)';
+                }
+
+                if (isInViewport(video)) {
+                    video.style.opacity = 1;
+                    video.style.transform = 'translateY(0)';
+                }
+
+                if (isInViewport(buttons)) {
+                    buttons.style.opacity = 1;
+                    buttons.style.transform = 'translateY(0)';
+                }
             }
 
-            if (isInViewport(video)) {
-                video.style.opacity = 1;
-                video.style.transform = 'translateY(0)';
-            }
-
-            if (isInViewport(buttons)) {
-                buttons.style.opacity = 1;
-                buttons.style.transform = 'translateY(0)';
-            }
-        }
-
-        // Initial check on page load
-        animateElementsOnScroll();
-
-        // Event listener for scroll event
-        window.addEventListener('scroll', function() {
+            // Initial check on page load
             animateElementsOnScroll();
+
+            // Event listener for scroll event with debouncing
+            var scrollTimeout;
+            window.addEventListener('scroll', function() {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(function() {
+                    animateElementsOnScroll();
+                }, 100); // Adjust debounce delay as needed
+            });
         });
     </script>
 
-<script src="src\index.js"></script>
 </body>
 </html>
