@@ -10,9 +10,9 @@ const Quiz = () => {
             <div className="container">
                 <div className="row vh-100 align-items-center justify-content-center">
                     <div className="col-lg-8">
-                        <div className="card p-4" style={{ background: '#dcd8d8', borderColor: '#373333' }}>
+                        <div className="card p-4" style={{ background: '#f4f5eb', borderColor: '#373333' }}>
                             <div className="d-flex justify-content-between gap-md-3">
-                                <h5 className='mb-2 fs-normal lh-base' style={{ color: 'white'}}>{question?.question}</h5>
+                                <h5 className='mb-2 fs-normal lh-base' style={{ color: 'black'}}>{question?.question}</h5>
                                 <h5 style={{ color: '#4B9F00', width: '100px', textAlign: 'right' }}>{quizs.indexOf(question) + 1} / {quizs?.length}</h5>
                             </div>
                             <div>
