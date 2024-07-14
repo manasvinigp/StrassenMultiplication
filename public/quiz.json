@@ -20,9 +20,9 @@
         "answer": "T(n) = 7T(n/2) + O(n^2)"
       },
       {
-        "question": "Strassen's algorithm reduces the time complexity of matrix multiplication from O(n^3) to approximately:",
-        "options": ["O(n^2.5)", "O(n^2.81)", "O(n^2.71)", "O(n^2.61)"],
-        "answer": "O(n^2.81)"
+        "question": "Strassen's algorithm changes the time complexity of matrix multiplication from _____ to approximately O(n^2.81) :",
+        "options": ["O(n^2)", "O(n^3)", "O(n^n)", "O(n^4)"],
+        "answer": "O(n^3)"
       },
       {
         "question": "Which of the following is a step in Strassen's algorithm?",
@@ -266,8 +266,8 @@
       },
       {
         "question": "Which of the following steps is used to compute P6 in Strassen's algorithm?",
-        "options": ["P1 = A11 (B12 - B22)", "P2 = (A11 + A12) B22", "P3 = (A21 + A22) B11", "P6 = (A21 - A11) (B11 + B12)"],
-        "answer": "P6 = (A21 - A11) (B11 + B12)"
+        "options": ["A11 (B12 - B22)", "(A11 + A12) B22", "(A21 + A22) B11", "(A21 - A11) (B11 + B12)"],
+        "answer": "(A21 - A11) (B11 + B12)"
       },
       {
         "question": "Strassen's algorithm is more efficient than the naive matrix multiplication algorithm when:",
